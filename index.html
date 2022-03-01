@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,30 +12,33 @@
 </head>
 
 <style>
+	:root {
+		--header-height: 5rem;
+		--heights: calc(100vh - var(--header-height));
+	}
+
+	header {
+		height: var(--header-height);
+	}
 
 	.center-container {
-		min-height: 100vh;
+		min-height: var(--heights);
 	}
 
 	nav {
 		width: 180px;
-		min-height: 100vh;
+		min-height: var(--heights);
 	}
-
-	.assignment::before {
-		content: 'Consegna:';
-		display: block;
-		color: black;
-		font-size: 1.2em;
-		margin-bottom: 1rem;
-	}
-
 </style>
 
-<body class="d-flex">
+<body class="d-flex flex-wrap">
+	<!-- Header with main title -->
+	<header class="bg-secondary text-white text-uppercase d-flex justify-content-center align-items-center w-100">
+		<h1>Pali e Dispari</h1>
+	</header>
 
 	<!-- Left sidebar with link buttons-->
-	<nav class="d-flex flex-column bg-dark">
+	<nav class="d-flex flex-column bg-secondary">
 		<ul class="w-100 p-2">
 			<li class="w-100">
 				<button class="btn btn-light mb-3 w-100" id="btn-palindromes">Palindrome</button>
@@ -47,25 +50,16 @@
 	</nav>
 
 	<!-- Center container with header, main e footer -->
-	<div class="container-fluid center-container p-0 d-flex flex-column">
-
-		<!-- Header with main title -->
-		<header class="bg-dark text-white text-uppercase text-center py-2 d-block">
-			<h1>Pali e Dispari</h1>
-		</header>
+	<div class="center-container p-0 d-flex flex-column">
 
 		<!-- Main with a container and a checker box -->
 		<main>
-
 			<!-- Main container that JS will populate with a title, instruction, a button and possibly with inputs -->
 			<div class="container p-4" id="main-container"></div>
 
 			<!-- Container for JS outputs -->
 			<div class="output container mt-3 px-4"></div>
 		</main>
-
-		<!-- Footer with instructions -->
-		<footer class="text-secondary bg-light mt-auto px-4"></footer>
 	</div>
 
 	<!-- JavaScript -->
