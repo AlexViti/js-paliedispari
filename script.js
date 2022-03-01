@@ -38,7 +38,6 @@ btnPalindromes.addEventListener('click', function() {
 });
 
 function palindrome(string) {
-	string += '';
 	let invertedString = reverseString(string);
 	if (string.toLowerCase() == invertedString.toLowerCase()) {
 		return true;
@@ -48,14 +47,10 @@ function palindrome(string) {
 }
 
 function reverseString(string) {
-	let reverseString = '' + string;
-	console.log(reverseString);
-	let reverseArr = reverseString.split('');
-	console.log(reverseArr);
-	reverseArr.reverse();
-	console.log(reverseArr);
-	reverseString = reverseArr.join('');
-	console.log(reverseString);
+	let reverseString = string;
+	reverseString = reverseString.split('');
+	reverseString = reverseString.reverse();
+	reverseString = reverseString.join('');
 	return reverseString;
 }
 
