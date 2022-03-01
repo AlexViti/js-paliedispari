@@ -82,8 +82,8 @@ btnEvenOdd.addEventListener('click', function() {
 			<option value="true">Pari</option>
 			<option value="false">Dispari</option>
 		</select>
-		<input type="number" min="1" max="5" step="1">
-		<button class="btn btn-dark rounded-pill play">Gioca</button>
+		<input type="number" value="1" min="1" max="5" step="1">
+		<submit class="btn btn-dark rounded-pill play">Gioca</submit>
 	`;
 
 	output.innerHTML = '';
@@ -93,18 +93,22 @@ btnEvenOdd.addEventListener('click', function() {
 	const inputNumber = document.querySelector('input');
 
 	btnPlay.addEventListener('click', function() {
-		let cpuNumber = randomNumber(1, 5);
-		let sum = cpuNumber + parseInt(inputNumber.value);
-		if (`${isEven(sum)}` == select.value) {
-			output.innerHTML = `
-				Il computer ha scelto ${cpuNumber} <br>
-				Hai vinto.
-			`;
+		if (isNaN(inputNumber.value) || inputNumber.value < 1 || inputNumber.value > 5) {
+			output.innerHTML = 'Inserisci un numero compreso fra 1 e 5';
 		} else {
-			output.innerHTML = `
-				Il computer ha scelto ${cpuNumber} <br>
-				Hai perso.
-			`;
+			let cpuNumber = randomNumber(1, 5);
+			let sum = cpuNumber + parseInt(inputNumber.value);
+			if (`${isEven(sum)}` == select.value) {
+				output.innerHTML = `
+					Il computer ha scelto ${cpuNumber} <br>
+					Hai vinto.
+				`;
+			} else {
+				output.innerHTML = `
+					Il computer ha scelto ${cpuNumber} <br>
+					Hai perso.
+				`;
+			}
 		}
 	})
 });
