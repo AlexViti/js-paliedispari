@@ -4,7 +4,7 @@ const btnPalindromes = document.getElementById('btn-palindromes');
 const btnEvenOdd = document.getElementById('btn-even-odd');
 
 /*
-Palidroma
+Palindroma
 
 Chiedere all’utente di inserire una parola
 Creare una funzione per capire se la parola inserita è palindroma
@@ -37,13 +37,14 @@ btnPalindromes.addEventListener('click', function() {
 	function palindromeChecker() {
 		let inputString = input.value;
 		if(palindrome(inputString)) {
-			output.innerHTML = `${inputString} è una parola palindroma`;
+			output.innerHTML = `${inputString} <strong>è</strong> una parola palindroma`;
 		} else {
-			output.innerHTML = `${inputString} non è una parola palindroma`;
+			output.innerHTML = `${inputString} <strong>non è</strong> una parola palindroma`;
 		}
 	}
 });
 
+// Check if a string is palindrome, it's NOT case sensitive
 function palindrome(string) {
 	let invertedString = reverseString(string);
 	if (string.toLowerCase() == invertedString.toLowerCase()) {
@@ -53,6 +54,7 @@ function palindrome(string) {
 	}
 }
 
+// Return the reverse of a given string
 function reverseString(string) {
 	let reverseString = string;
 	reverseString = reverseString.split('');
@@ -116,11 +118,13 @@ btnEvenOdd.addEventListener('click', function() {
 	})
 });
 
+// Function that generate a random number beetween given minimum and maximum
 function randomNumber(min, max) {
 	let number = Math.floor(Math.random() * max + min);
 	return number;
 }
 
+// Function that check if a number is even
 function isEven(number) {
 	if (number % 2 == 0) {
 		return true;
