@@ -93,12 +93,8 @@ btnEvenOdd.addEventListener('click', function() {
 	const inputNumber = document.querySelector('input');
 
 	btnPlay.addEventListener('click', function() {
-		console.log(select.value);
 		let cpuNumber = randomNumber(1, 5);
 		let sum = cpuNumber + parseInt(inputNumber.value);
-		console.log(isEven(sum));
-		console.log(sum);
-		console.log(isEven(sum) == select.value)
 		if (`${isEven(sum)}` == select.value) {
 			output.innerHTML = `
 				Il computer ha scelto ${cpuNumber} <br>
