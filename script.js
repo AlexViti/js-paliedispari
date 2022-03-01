@@ -29,7 +29,7 @@ btnPalindromes.addEventListener('click', function() {
 		palindromeChecker();
 	});
 	input.addEventListener('keypress', function(e) {
-		if(e.key === 'Enter') {
+		if (e.key === 'Enter') {
 			palindromeChecker();
 		}
 	});
@@ -98,15 +98,18 @@ btnEvenOdd.addEventListener('click', function() {
 		} else {
 			let cpuNumber = randomNumber(1, 5);
 			let sum = cpuNumber + parseInt(inputNumber.value);
+			output.innerHTML = `Il computer ha scelto ${cpuNumber}`
 			if (`${isEven(sum)}` == select.value) {
-				output.innerHTML = `
-					Il computer ha scelto ${cpuNumber} <br>
-					Hai vinto.
+				output.innerHTML += `
+					<div style="color: green; font-size: 1.5em; font-weight: 600">
+						Hai vinto.
+					</div>
 				`;
 			} else {
-				output.innerHTML = `
-					Il computer ha scelto ${cpuNumber} <br>
-					Hai perso.
+				output.innerHTML += `
+					<div style="color: red; font-size: 1.5em; font-weight: 600">
+						Hai perso.
+					</div>
 				`;
 			}
 		}
