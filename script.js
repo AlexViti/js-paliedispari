@@ -72,4 +72,56 @@ Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.
 */
 
-// btnEvenOdd.addEventListener('click')
+btnEvenOdd.addEventListener('click', function() {
+	container.innerHTML =`
+		<h2>Pari e dispari</h2>
+
+		<p class"my-3">Scegli se vuoi puntare su pari o dispari, poi scegli un numero dall' 1 al 5 per giocare alla morra contro il computer.</p>
+
+		<select name="Even or odd">
+			<option value="true">Pari</option>
+			<option value="false">Dispari</option>
+		</select>
+		<input type="number" min="1" max="5" step="1">
+		<button class="btn btn-dark rounded-pill play">Gioca</button>
+	`;
+
+	output.innerHTML = '';
+
+	const btnPlay = document.querySelector('.play');
+	const select = document.querySelector('select');
+	const inputNumber = document.querySelector('input');
+
+	btnPlay.addEventListener('click', function() {
+		console.log(select.value);
+		let cpuNumber = randomNumber(1, 5);
+		let sum = cpuNumber + parseInt(inputNumber.value);
+		console.log(isEven(sum));
+		console.log(sum);
+		console.log(isEven(sum) == select.value)
+		if (`${isEven(sum)}` == select.value) {
+			output.innerHTML = `
+				Il computer ha scelto ${cpuNumber} <br>
+				Hai vinto.
+			`;
+		} else {
+			output.innerHTML = `
+				Il computer ha scelto ${cpuNumber} <br>
+				Hai perso.
+			`;
+		}
+	})
+});
+
+function randomNumber(min, max) {
+	let number = Math.floor(Math.random() * max + min);
+	return number;
+}
+
+function isEven(number) {
+	if (number % 2 == 0) {
+		return true;
+	} else {
+		return false;
+	} 
+}
