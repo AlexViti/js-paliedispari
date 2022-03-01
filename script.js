@@ -1,7 +1,5 @@
 const container = document.getElementById('main-container');
 const output = document.querySelector('.output');
-const nav = document.querySelector('nav');
-const footer = document.querySelector('footer');
 const btnPalindromes = document.getElementById('btn-palindromes');
 const btnEvenOdd = document.getElementById('btn-even-odd');
 
@@ -16,7 +14,7 @@ btnPalindromes.addEventListener('click', function() {
 	container.innerHTML =`
 		<h2>Palindrome</h2>
 
-		<p class"my-3">Inserisci una parola nella barra sottostante per determinare se è palindroma o meno</p>
+		<p class"my-3">Inserisci una parola nella barra sottostante per determinare se è palindroma o meno, poi premi invio o il bottone \"Controlla\".</p>
 
 		<input type="text" placeholder="Inserisci qui la parola">
 		<button class="btn btn-dark rounded-pill check">Controlla</button>
@@ -28,13 +26,22 @@ btnPalindromes.addEventListener('click', function() {
 	const btnCheck = document.querySelector('.check');
 
 	btnCheck.addEventListener('click', function() {
+		palindromeChecker();
+	});
+	input.addEventListener('keypress', function(e) {
+		if(e.key === 'Enter') {
+			palindromeChecker();
+		}
+	});
+	
+	function palindromeChecker() {
 		let inputString = input.value;
 		if(palindrome(inputString)) {
 			output.innerHTML = `${inputString} è una parola palindroma`;
 		} else {
 			output.innerHTML = `${inputString} non è una parola palindroma`;
 		}
-	});
+	}
 });
 
 function palindrome(string) {
@@ -64,3 +71,5 @@ Sommiamo i due numeri
 Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.
 */
+
+// btnEvenOdd.addEventListener('click')
